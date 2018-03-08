@@ -1,0 +1,17 @@
+{
+  "name": "openweatherapiservice",
+  "version": "1.0.0",
+  "description": "openweatherapiservice",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "ip": "^1.1.5"
+  }
+}
