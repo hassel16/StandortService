@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-server.listen(process.env.PORT || 3000, function () {
+server.listen(process.env.PORT || 3001, function () {
     const serviceRegistration = new ServiceRegistration("OpenWeatherAPIService", 'https://leftloversstandortservice.azurewebsites.net', '443');
     console.log("OpenWeather");
 });
