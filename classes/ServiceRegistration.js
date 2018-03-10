@@ -13,8 +13,7 @@ class ServiceRegistration {
         const postData = JSON.stringify(this.ownService);
 
         const options = {
-            hostname: '127.0.0.1',
-            port: 80,
+            hostname: 'leftloversgateway.azurewebsites.net',
             path: '/APIGateway/ServiceRegister/?password=leftlovers_wwi16B3',
             method: 'POST',
             headers: {

@@ -9,9 +9,7 @@ const express = require('express'),
     Weather = require('./classes/Weather.js'),
     ServiceRegistration = require('./classes/ServiceRegistration.js');
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+
 app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
@@ -20,7 +18,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-server.listen(8091, function () {
+server.listen(process.env.PORT || 3000, function () {
     const serviceRegistration = new ServiceRegistration("OpenWeatherAPIService", 'http://localhost', server.address().port);
     console.log("OpenWeather");
 });
@@ -35,4 +33,9 @@ app.get('/OpenWeatherAPIService/WeatherAtIndustriehof', function (req, res) {
 
 app.get('/OpenWeatherAPIService/Test', function (req, res) {
         res.json(new String("Hello World"));
+});
+
+app.post('/OpenWeatherAPIService/Test2', function (req, res) {
+    console.log(req.body.username);
+    res.status(200).json('{"key"'+':'+ '"Hello World"}');
 });
