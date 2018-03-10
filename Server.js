@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
 });
 
 server.listen(process.env.PORT || 3000, function () {
-    const serviceRegistration = new ServiceRegistration("OpenWeatherAPIService", 'http://localhost', server.address().port);
+    const serviceRegistration = new ServiceRegistration("OpenWeatherAPIService", 'https://leftloversstandortservice.azurewebsites.net', '443');
     console.log("OpenWeather");
 });
 
