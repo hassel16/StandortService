@@ -1,7 +1,7 @@
 'use strict';
 
 const Service = require("./Service.js"),
-    http = require('http');
+    http = require('https');
 
 class ServiceRegistration {
     constructor(serviceName, serviceAddress, servicePort) {
@@ -22,7 +22,7 @@ class ServiceRegistration {
                 'Content-Length': Buffer.byteLength(postData)
             }
         }
-        const req = http.request(options, (res) => {
+        const req = https.request(options, (res) => {
             res.on('data', (data) => {
                 console.log(JSON.parse(data))
                 //this.ownService = ;
