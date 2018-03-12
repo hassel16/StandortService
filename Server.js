@@ -19,23 +19,23 @@ app.use(function (req, res, next) {
 });
 
 server.listen(process.env.PORT || 3000, function () {
-    const serviceRegistration = new ServiceRegistration("OpenWeatherAPIService", 'https://standortservice.herokuapp.com', '443');
-    console.log("OpenWeather");
+    const serviceRegistration = new ServiceRegistration("StandortService", 'https://standortservice.herokuapp.com', '443');
+    console.log("StandortService");
 });
 
 
-app.get('/OpenWeatherAPIService/WeatherAtIndustriehof', function (req, res) {
+app.get('/StandortService/WeatherAtIndustriehof', function (req, res) {
     let weather = new Weather();
     weather.getActualWeather(function (responseGetActualWeather){
         res.json(responseGetActualWeather);
     });
 });
 
-app.get('/OpenWeatherAPIService/Test', function (req, res) {
+app.get('/StandortService/Test', function (req, res) {
         res.json(new String("Hello World"));
 });
 
-app.post('/OpenWeatherAPIService/Test2', function (req, res) {
+app.post('/StandortService/Test2', function (req, res) {
     console.log(req.body.username);
     res.status(200).json('{"key"'+':'+ '"Hello World"}');
 });
