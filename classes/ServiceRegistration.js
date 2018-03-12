@@ -14,6 +14,7 @@ class ServiceRegistration {
 
         const options = {
             hostname: 'leftloversgateway.azurewebsites.net',
+            port:'443',
             path: '/APIGateway/ServiceRegister/?password=leftlovers_wwi16B3',
             method: 'POST',
             headers: {
