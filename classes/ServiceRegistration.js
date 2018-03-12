@@ -1,7 +1,7 @@
 'use strict';
 
 const Service = require("./Service.js"),
-    http = require('https');
+    https = require('https');
 
 class ServiceRegistration {
     constructor(serviceName, serviceAddress, servicePort) {
