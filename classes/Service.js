@@ -8,7 +8,6 @@ class Service {
         this.serviceUrl = serviceUrl;
         this.servicePort = servicePort;
         this.serviceID;
-        this.token;
     }
 
     getServiceFromServiceRegister(callback) {
