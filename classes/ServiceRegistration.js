@@ -11,7 +11,6 @@ class ServiceRegistration {
 
     registerInServiceRegister() {
         const postData = JSON.stringify(this.ownService);
-        console.log(postData)
         const options = {
             hostname: 'leftloversgateway.azurewebsites.net',
             port:'443',
@@ -25,7 +24,6 @@ class ServiceRegistration {
         const req = https.request(options, (res) => {
             res.on('data', (data) => {
                 this.ownService.serviceID = data.serviceId;
-                console.log()
             });
         });
         req.write(postData);
