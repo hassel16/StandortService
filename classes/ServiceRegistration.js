@@ -24,7 +24,6 @@ class ServiceRegistration {
         }
         const req = https.request(options, (res) => {
             res.on('data', (data) => {
-                console.log(JSON.parse(data))
                 //this.ownService = ;
             });
         });
