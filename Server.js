@@ -8,7 +8,7 @@ const express = require('express'),
     server = http.createServer(app),
     Weather = require('./classes/Weather.js'),
     ServiceRegistration = require('./classes/ServiceRegistration.js'),
-    Cors = require('cors');
+    cors = require('cors');
 
 var corsOptions = {
     origin: 'https://leftloversgateway.azurewebsites.net',
