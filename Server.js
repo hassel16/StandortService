@@ -7,18 +7,15 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     server = http.createServer(app),
     Weather = require('./classes/Weather.js'),
-    ServiceRegistration = require('./classes/ServiceRegistration.js'),
-    cors = require('cors');
+    ServiceRegistration = require('./classes/ServiceRegistration.js');
 
-var corsOptions = {
-    origin: 'https://leftloversgateway.azurewebsites.net',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+
 app.use(bodyParser.json());
-app.use(cors(corsOptions),function (req, res, next) {
+
+app.use(function (req, res, next) {
     // Website you wish to allow to connect
-    //res.setHeader('Access-Control-Allow-Origin', 'https://leftloversgateway.azurewebsites.net');
-    //next();
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
 });
 
 server.listen(process.env.PORT || 3000, function () {
@@ -29,13 +26,13 @@ server.listen(process.env.PORT || 3000, function () {
 
 app.get('/StandortService/WeatherAtIndustriehof', function (req, res) {
     let weather = new Weather();
-    weather.getActualWeather(function (responseGetActualWeather) {
+    weather.getActualWeather(function (responseGetActualWeather){
         res.json(responseGetActualWeather);
     });
 });
 
 app.get('/StandortService/Test', function (req, res) {
-    res.json(new String("Hello World"));
+        res.json(new String("Hello World"));
 });
 
 app.post('/StandortService/Test2', function (req, res) {
