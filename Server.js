@@ -36,6 +36,9 @@ app.get('/StandortService/Test', function (req, res) {
 });
 
 app.post('/StandortService/Test2', function (req, res) {
+    let weather = new Weather();
+    weather.getActualWeather(function (responseGetActualWeather){
+        res.status(200).json(responseGetActualWeather);
+    });
 
-    res.status(200).json("Hello World");
 });
