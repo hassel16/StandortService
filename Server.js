@@ -36,6 +36,6 @@ app.get('/StandortService/Test', function (req, res) {
 });
 
 app.post('/StandortService/Test2', function (req, res) {
-    console.log(req.body.username);
+
     res.status(200).json("Hello World");
 });
