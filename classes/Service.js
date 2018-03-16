@@ -7,7 +7,7 @@ class Service {
         this.serviceName = serviceName;
         this.serviceUrl = serviceUrl;
         this.servicePort = servicePort;
-        this.serviceID;
+        this.serviceId;
     }
 
     getServiceFromServiceRegister(callback) {
