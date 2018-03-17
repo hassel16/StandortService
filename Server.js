@@ -32,7 +32,10 @@ app.get('/StandortService/WeatherAtIndustriehof', function (req, res) {
 });
 
 app.get('/StandortService/wakeup', function (req, res) {
-    res.json(req.connection.remoteAddress);
+    res.json(req.headers['x-forwarded-for'].split(',').pop() || 
+    req.connection.remoteAddress || 
+    req.socket.remoteAddress || 
+    req.connection.socket.remoteAddress);
         //res.json("I'm already up!");
 });
 
