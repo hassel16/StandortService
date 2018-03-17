@@ -32,7 +32,8 @@ app.get('/StandortService/WeatherAtIndustriehof', function (req, res) {
 });
 
 app.get('/StandortService/wakeup', function (req, res) {
-        res.json("I'm already up!");
+    res.json(req.connection.remoteAddress);
+        //res.json("I'm already up!");
 });
 
 app.post('/StandortService/Test2', function (req, res) {
