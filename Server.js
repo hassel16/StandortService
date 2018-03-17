@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '52.173.134.115');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 });
 
@@ -32,11 +32,7 @@ app.get('/StandortService/WeatherAtIndustriehof', function (req, res) {
 });
 
 app.get('/StandortService/wakeup', function (req, res) {
-    res.json(req.headers['x-forwarded-for'].split(',').pop() || 
-    req.connection.remoteAddress || 
-    req.socket.remoteAddress || 
-    req.connection.socket.remoteAddress);
-        //res.json("I'm already up!");
+        res.json("I'm already up!");
 });
 
 app.post('/StandortService/Test2', function (req, res) {
