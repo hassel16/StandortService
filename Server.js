@@ -31,7 +31,7 @@ app.get('/StandortService/WeatherAtIndustriehof', function (req, res) {
     });
 });
 
-app.get('/StandortService/wakeup', function (req, res) {
+app.get('/StandortService/health', function (req, res) {
         res.json("I'm already up!");
 });
 
