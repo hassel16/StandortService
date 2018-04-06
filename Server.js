@@ -3,10 +3,9 @@
 const express = require('express'),
     http = require('http'),
     app = express(),
-    ip = require('ip'),
     bodyParser = require('body-parser'),
     server = http.createServer(app),
-    Weather = require('./classes/Weather.js'),
+    Radiusberechnung = require('./classes/Radiusberechnung.js'),
     ServiceRegistration = require('./classes/ServiceRegistration.js');
 
 
@@ -24,21 +23,11 @@ server.listen(process.env.PORT || 3000, function () {
 });
 
 
-app.get('/StandortService/WeatherAtIndustriehof', function (req, res) {
-    let weather = new Weather();
-    weather.getActualWeather(function (responseGetActualWeather){
-        res.json(responseGetActualWeather);
-    });
+app.get('/StandortService/Abstandsberechnung', function (req, res) {
+    let radiusBerechnung = new Radiusberechnung(req.query.lat1,req.query.lon1,req.query.lat2,req.query.lon2)
+    res.status(200).json(radiusBerechnung.berechnungAbstandInKM());
 });
 
 app.get('/StandortService/health', function (req, res) {
         res.json("I'm already up!");
-});
-
-app.post('/StandortService/Test2', function (req, res) {
-    let weather = new Weather();
-    weather.getActualWeather(function (responseGetActualWeather){
-        res.status(200).json(responseGetActualWeather);
-    });
-
 });

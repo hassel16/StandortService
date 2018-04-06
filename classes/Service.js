@@ -10,22 +10,6 @@ class Service {
         this.serviceId;
     }
 
-    getServiceFromServiceRegister(callback) {
-        const options = {
-            hostname: '127.0.0.1',
-            port: 8080,
-            path: `/serviceRegister/Service/${this.serviceName}`,
-            method: 'GET'
-        }
-
-        const req = http.request(options, (res) => {
-            res.on('data', (data) => {
-                callback(JSON.parse(data));
-            });
-        });
-        req.end();
-    }
-
 
 }
 module.exports = Service;
